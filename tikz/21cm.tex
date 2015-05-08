@@ -1,0 +1,18 @@
+\begin{tikzpicture}[
+    level/.style={very thick},
+  photon/.style={-{Stealth[length=2mm]}, thick, decorate, decoration={snake, pre length=1mm, post length=2mm,}}, connect/.style={dashed, very thick},
+  ]
+  \draw[level] (0, 0) -- (+1.5, 0) node at (0, 0) [above] {$1^2S$};
+  \draw[connect] (1.5, 0) -- +(1.5,  1);
+  \draw[connect] (1.5, 0) -- +(1.5, -1);
+  \draw[level] (3,  1) -- +(1.5, 0);
+  \draw[level] (3, -1) -- +(1.5, 0);
+
+  \draw[red!70!black, ->, thick] (3.75, 1) -- +(0, -2)
+    node[right, midway] {$\increment E = \SI{5.9e-6}{\electronvolt}$};
+  \draw[red!70!black, photon] (3.75, 0) -- + (-3, -2)
+  node[below, align=left] {$λ = \SI{21.11}{\centi\meter}$ \\ $f = \SI{1420.40}{\mega\hertz}$};
+  \node[] at (5,  1) {$\uparrow \quad \uparrow$};
+  \node[] at (5, -1) {$\uparrow \quad \downarrow$};
+  \node[] at (5,  1.5) {$\mathup{p}\quad\mathup{e}$};
+\end{tikzpicture}
