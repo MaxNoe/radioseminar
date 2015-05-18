@@ -27,11 +27,15 @@
 \pgfplotsset{compat=1.12}
 
 
-% \usepackage{xfrac}
+\usepackage{xfrac}
 
 \newcommand\SIQ[2]{\ensuremath{#1\mathrel{/}\si{#2}}}
 
 \usetheme{vertex}
+
+\newcommand\PI{\ensuremath{\mathup{π}}}
+\newcommand\kb{\ensuremath{k_\mathup{B}}}
+\newcommand\TB{\ensuremath{T_\mathup{B}}}
 
 
 \author{Maximilian Nöthe}
@@ -42,6 +46,41 @@
 \begin{document}
 \maketitle
 
+\section{Linien-Emission}
+\begin{frame}{Einstein-Koeffizienten}
+  \begin{columns}[c]%
+    \begin{column}{0.5\textwidth}%
+      \input{tikz/transitions.tex}%
+    \end{column}%
+    \begin{column}{0.5\textwidth}%
+      mittlere Energiedichte:
+      \begin{equation*}
+        \bar{U} = \frac{4\PI}{c} \bar{I}
+      \end{equation*}
+      in statischem System:
+      \begin{equation*}
+        N_2 A_{21} + N_2 B_{21} \bar{U} = N_1 B_{12} \bar{U}
+      \end{equation*}
+    \end{column}%
+  \end{columns}%
+\end{frame}
+
+\begin{frame}{Wichtige Kenngrößen}
+  \begin{block}{Brightness Temperature $T_\mathup{B}$}
+    \begin{align*}%
+      \TB &= \frac{c²}{2 \kb} \frac{1}{ν²} I_ν & 
+      \TB &= \frac{h ν}{k_\mathup{B}}
+             \frac{1}{\ln\!\left(
+                \frac{8\PI h ν³}{c³\bar{U}} + 1
+             \right)} \\
+      &\text{(allgemein)} &  &\text{(Linienemission)}
+    \end{align*}%
+  \begin{itemize}
+    \item Rayleigh–Jeans-Temperatur für gegebene Intensität $I_ν$
+    \item verbreitetes Helligkeitsmaß in der Radioastronomie
+  \end{itemize}
+  \end{block}%
+\end{frame}
 
 \begin{frame}{Die \SI{21}{\centi\meter}-Linie}
   \begin{columns}[c]%

@@ -1,0 +1,13 @@
+\begin{tikzpicture}[
+  scale=0.75,
+  level/.style={very thick},
+  photon/.style={-{Stealth[length=2mm]}, color=red!70!black, thick, decorate, decoration={snake, pre length=0.5mm, post length=1mm,}},
+  connect/.style={dashed, very thick},
+  ]
+  \draw[level] (0,  0) node [left] {$E_2$} -- +(8, 0);
+  \draw[level] (0, -2) node [left] {$E_1$} -- +(8, 0);
+  \draw[photon] (2, 0) -- +(0,-2) node [below] {\normalcolor Emission} node[midway,left] {$A_{21}$};
+  \draw[photon] (4,-2) -- +(0, 2) node [above] {\normalcolor Absortion} node[midway,left] {$B_{12}\bar{U}$};
+  \draw[photon] (6, 0) -- +(0,-2) node [below] {\normalcolor stim.\ Emission} node[midway, right] {$B_{21}\bar{U}$};
+  \draw[photon] (5,-1) -- +(0.95, 0);
+\end{tikzpicture}
