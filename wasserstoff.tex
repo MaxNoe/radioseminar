@@ -27,6 +27,16 @@
 \usepgfplotslibrary{polar}
 \pgfplotsset{compat=1.12}
 
+\newcommand\fullscreenimage[1]{{%
+  \usebackgroundtemplate{%
+    \includegraphics[
+      width=\paperwidth,
+      height=\paperheight,
+  ]{#1}}
+  \begin{frame}[plain]%
+  \end{frame}%
+}}
+
 
 \usepackage{xfrac}
 
@@ -149,4 +159,6 @@
     \end{column}%
   \end{columns}%
 \end{frame}
+
+\fullscreenimage{./images/things.png}
 \end{document}
