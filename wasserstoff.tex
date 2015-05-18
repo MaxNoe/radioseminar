@@ -15,6 +15,7 @@
 ]{unicode-math}
 
 \usepackage[locale=DE, math-rm=\mathup]{siunitx}
+\DeclareSIUnit{\year}{a}
 
 \usepackage{graphicx}
 
@@ -29,10 +30,10 @@
 
 \usepackage{xfrac}
 
-\newcommand\SIQ[2]{\ensuremath{#1\mathrel{/}\si{#2}}}
 
 \usetheme{vertex}
 
+\newcommand\SIQ[2]{\ensuremath{#1\mathrel{/}\si{#2}}}
 \newcommand\PI{\ensuremath{\mathup{π}}}
 \newcommand\kb{\ensuremath{k_\mathup{B}}}
 \newcommand\TB{\ensuremath{T_\mathup{B}}}
@@ -48,11 +49,11 @@
 
 \section{Linien-Emission}
 \begin{frame}{Einstein-Koeffizienten}
-  \begin{columns}[c]%
+  \begin{columns}[T, onlytextwidth]%
     \begin{column}{0.5\textwidth}%
       \input{tikz/transitions.tex}%
     \end{column}%
-    \begin{column}{0.5\textwidth}%
+    \begin{column}{0.45\textwidth}%
       mittlere Energiedichte:
       \begin{equation*}
         \bar{U} = \frac{4\PI}{c} \bar{I}
@@ -83,15 +84,19 @@
 \end{frame}
 
 \begin{frame}{Die \SI{21}{\centi\meter}-Linie}
-  \begin{columns}[c]%
+  \begin{columns}[c, onlytextwidth]%
     \begin{column}{0.6\textwidth}%
       \input{tikz/21cm.tex}
     \end{column}%
     \begin{column}{0.4\textwidth}%
       \begin{itemize}
         \item Hyperfeinstruktur-Übergang in neutralem H
-        \item Einzige Möglichkeit Gaswolken zu vermessen
-        \item stark unterdrückt
+        \item stark unterdrückt:
+          \begin{gather*}
+            A_{21} = \SI{2.869}{\per\second} \\
+            τ = \SI{1.1e7}{\year}
+          \end{gather*}\vspace{-1.5\baselineskip}%
+        \item Anregung durch Stöße im interstellarem Medium
       \end{itemize}
     \end{column}%
   \end{columns}%
@@ -120,6 +125,7 @@
           ]%
           \addplot[red!70!black] table[x index=3, y index=1]{./data/radial_velocity_l335.txt};%
         \end{axis}%
+      \end{tikzpicture}%
       }%
       \only<2>{%
       \begin{tikzpicture}[overlay, remember picture, shift={(current page.center)}]%
@@ -138,8 +144,8 @@
           ]%
           \addplot[red!70!black] table[x index=3, y index=1]{./data/radial_velocity_l270.txt};%
         \end{axis}%
-      }%
       \end{tikzpicture}%
+      }%
     \end{column}%
   \end{columns}%
 \end{frame}
