@@ -6,6 +6,8 @@
 \usepackage{polyglossia}
 \setmainlanguage{german}
 
+\usepackage{microtype}
+
 \usepackage{mathtools}
 \usepackage[
   math-style=ISO,
@@ -14,6 +16,7 @@
   partial=upright,
 ]{unicode-math}
 
+\usepackage[]{csquotes}
 \usepackage[locale=DE, math-rm=\mathup]{siunitx}
 \DeclareSIUnit{\year}{a}
 
@@ -66,12 +69,13 @@
     \begin{column}{0.45\textwidth}%
       mittlere Energiedichte:
       \begin{equation*}
-        \bar{U} = \frac{4\PI}{c} \bar{I}
+        \bar{U} = \frac{4\PI}{c} \bar{I},\quad\text{$\bar{I} =$ mittlere Intensität}
       \end{equation*}
       in statischem System:
       \begin{equation*}
         N_2 A_{21} + N_2 B_{21} \bar{U} = N_1 B_{12} \bar{U}
       \end{equation*}
+      Mit $N_i =$ Anzahl Elektronen auf Energieniveau $E_i$
     \end{column}%
   \end{columns}%
 \end{frame}
@@ -103,7 +107,7 @@
         \item Hyperfeinstruktur-Übergang in neutralem H
         \item stark unterdrückt:
           \begin{gather*}
-            A_{21} = \SI{2.869}{\per\second} \\
+            A_{21} = \SI{2.869e-15}{\per\second} \\
             τ = \SI{1.1e7}{\year}
           \end{gather*}\vspace{-1.5\baselineskip}%
         \item Anregung durch Stöße im interstellarem Medium
@@ -144,49 +148,58 @@
 \end{frame}
 
 \begin{frame}{Die \SI{21}{\centi\meter}-Linie – Vermessung der Milchstraße}%
-  \begin{columns}[c]%
-    \begin{column}{0.5\textwidth}%
-      \includegraphics[width=\textwidth]{images/milkyway_structure_big_crop.jpeg}
+  \begin{columns}[c, onlytextwidth]
+    \begin{column}{0.47\textwidth}%
+      \includegraphics[width=\textwidth, angle=180]{./images/original_map.png}%
     \end{column}%
-    \begin{column}{0.5\textwidth}%
-      \only<1>{%
+    \begin{column}{0.47\textwidth}%
+      \begin{description}[Messung]
+        \item[1958] Veröffentlichung der ersten \enquote{Karte} der Milchstraße
+        \item[Autoren] J. H. Oort, F. J. Kerr und G. Westerhout
+        \item[Messung] \SI{7.5}{\meter}-Teleskop (Leiden) \&  \SI{11}{\meter}-Teleskop (Sidney)
+      \end{description}
+
+      \begin{center}
+      \parbox{0.85\linewidth}{\enquote{The \SI{21}{\centi\meter} oberservations brought about a revolution in the study of galactic structure}}
+      \end{center}
+    \end{column}%
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Moderne Messungen}
+
+  
+\end{frame}
+
+\begin{frame}{Die \SI{21}{\centi\meter}-Linie – Vermessung der Milchstraße}%
+  \begin{columns}[c, onlytextwidth]%
+    \begin{column}{0.47\textwidth}%
+      \includegraphics[width=\linewidth]{images/milkyway_structure_big_crop.jpeg}%
       \begin{tikzpicture}[overlay, remember picture, shift={(current page.center)}]%
-        \draw[red!70!black, thick, o->] (-3.895, -1.52) -- +(55:5);%
+        \only<1>{\draw[red!70!black, thick, o->] (-3.753, -1.41) -- +(65:4.5);}%
+        \only<2>{\draw[red!70!black, thick, o->] (-3.819, -1.32) -- +(0:4.5);}%
       \end{tikzpicture}%
+    \end{column}%
+    \begin{column}{0.47\textwidth}%
       \begin{tikzpicture}%
         \begin{axis}[%
-            title={$T_b$ für $l=\SI{335}{\degree}$},
+            title={$\TB$ für $l=\only<1>{\SI{335}{\degree}}\only<2>{\SI{270}{\degree}}$},
             xmin=21.09,
             xmax=21.12,
             ymin=-10,
             ymax=120,
-            width=\textwidth,
+            width=0.93\linewidth,
             xlabel={\SIQ{λ}{\centi\meter}},
-            ylabel={$\SIQ{T_b}{\kelvin}$},
+            ylabel={$\SIQ{\TB}{\kelvin}$},
           ]%
-          \addplot[red!70!black] table[x index=3, y index=1]{./data/radial_velocity_l335.txt};%
-        \end{axis}%
-      \end{tikzpicture}%
-      }%
-      \only<2>{%
-      \begin{tikzpicture}[overlay, remember picture, shift={(current page.center)}]%
-        \draw[red!70!black, thick, o->] (-3.935, -1.44) -- +(0:4);
-      \end{tikzpicture}%
-      \begin{tikzpicture}%
-        \begin{axis}[
-            title={$T_b$ für $l=\SI{270}{\degree}$},
-            xmin=21.09,
-            xmax=21.12,
-            ymin=-10,
-            ymax=120,
-            width=\textwidth,
-            xlabel={\SIQ{λ}{\centi\meter}},
-            ylabel={$\SIQ{T_b}{\kelvin} $},
-          ]%
+          \only<1>{%
+            \addplot[red!70!black] table[x index=3, y index=1]{./data/radial_velocity_l335.txt};%
+          }
+          \only<2>{%
           \addplot[red!70!black] table[x index=3, y index=1]{./data/radial_velocity_l270.txt};%
+          }
         \end{axis}%
       \end{tikzpicture}%
-      }%
     \end{column}%
   \end{columns}%
 \end{frame}
