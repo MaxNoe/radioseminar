@@ -1,0 +1,19 @@
+\centering
+\newcommand{\cloudangle}{18.4349488}
+\begin{tikzpicture}
+  \draw[thin] (0, 0) circle [radius = 1];
+  \draw[thin] (0, 0) circle [radius = 2];
+  \draw[thin] (0, 0) circle [radius = 3];
+  \filldraw[darkred!30] (0, 3) -- (0, 2.3) arc [start angle=270, end angle=270+\cloudangle, radius=0.7cm] -- cycle;
+  \node[fill, anchor=center, black!20,
+    cloud, draw, cloud puffs=11, minimum size=0.5cm,
+    cloud puff arc=120, aspect=3, inner sep=0em]  at (\cloudangle:1cm) {};
+    \draw[darkred, ->, dashed, thick] (0, 3) -- (\cloudangle:1cm) -- +(-90+\cloudangle:3.5cm);  
+  \draw (0, 0) -- + (0, 3) node[midway,left] {$R_0$};
+  \draw (0, 0) -- (\cloudangle:1cm) node[midway,below] {$R$};
+  \filldraw (0, 0) circle [radius=2pt];
+  \filldraw (0, 3) circle [radius=2pt] node[above] {Erde};
+  \draw[->, thick] (0, 3) -- + (1, 0) node[above] {$v_0$};
+  \draw[->, thick] (\cloudangle:1cm) -- +(-90+\cloudangle:1cm) node[right, midway] {$v$};
+  \node[left] at (0, 2.65) {$γ$};
+\end{tikzpicture}

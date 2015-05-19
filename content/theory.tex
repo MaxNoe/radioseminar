@@ -1,0 +1,55 @@
+\section{Linien-Emission}
+\begin{frame}{Einstein-Koeffizienten}
+  \begin{columns}[T, onlytextwidth]%
+    \begin{column}{0.5\textwidth}%
+      \input{tikz/transitions.tex}%
+    \end{column}%
+    \begin{column}{0.45\textwidth}%
+      mittlere Energiedichte:
+      \begin{equation*}
+        \bar{U} = \frac{4\PI}{c} \bar{I},\quad\text{$\bar{I} =$ mittlere Intensität}
+      \end{equation*}
+      in statischem System:
+      \begin{equation*}
+        N_2 A_{21} + N_2 B_{21} \bar{U} = N_1 B_{12} \bar{U}
+      \end{equation*}
+      Mit $N_i =$ Anzahl Elektronen auf Energieniveau $E_i$
+    \end{column}%
+  \end{columns}%
+\end{frame}
+
+\begin{frame}{Wichtige Kenngrößen}
+  \begin{block}{Brightness Temperature $T_\mathup{B}$}
+    \begin{align*}%
+      \TB &= \frac{c²}{2 \kb} \frac{1}{ν²} I_ν & 
+      \TB &= \frac{h ν}{k_\mathup{B}}
+             \frac{1}{\ln\!\left(
+                \frac{8\PI h ν³}{c³\bar{U}} + 1
+             \right)} \\
+      &\text{(allgemein)} &  &\text{(Linienemission)}
+    \end{align*}%
+  \begin{itemize}
+    \item Rayleigh–Jeans-Temperatur für gegebene Intensität $I_ν$
+    \item verbreitetes Helligkeitsmaß in der Radioastronomie
+  \end{itemize}
+  \end{block}%
+\end{frame}
+
+\begin{frame}{Die \SI{21}{\centi\meter}-Linie}
+  \begin{columns}[c, onlytextwidth]%
+    \begin{column}{0.6\textwidth}%
+      \input{tikz/21cm.tex}
+    \end{column}%
+    \begin{column}{0.4\textwidth}%
+      \begin{itemize}
+        \item Hyperfeinstruktur-Übergang in neutralem H
+        \item stark unterdrückt:
+          \begin{gather*}
+            A_{21} = \SI{2.869e-15}{\per\second} \\
+            τ = \SI{1.1e7}{\year}
+          \end{gather*}\vspace{-1.5\baselineskip}%
+        \item Anregung durch Stöße im interstellarem Medium
+      \end{itemize}
+    \end{column}%
+  \end{columns}%
+\end{frame}
