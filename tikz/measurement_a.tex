@@ -1,6 +1,6 @@
 \newcommand{\viewangle}{19.471220634490692}
 \newcommand{\cloudangleA}{79.5}
-\newcommand{\cloudangleB}{-40.7}
+\newcommand{\cloudangleB}{-40.55}
 \begin{tikzpicture}[
     hydrogen/.style={fill, anchor=center, black!20,
     cloud, draw, cloud puffs=11, minimum size=0.5cm,
@@ -13,10 +13,10 @@
   \node[hydrogen]  at (\cloudangleA:2cm) {};
   \node[hydrogen]  at (\cloudangleB:2cm) {};
   \draw[darkred, ->, dashed, thick] (0, 3) -- +(-90+\viewangle:6.5cm);
-  \filldraw (0, 0) circle [radius=2pt];
+  \filldraw[anchor=center] (0, 0) circle [radius=2pt];
   \filldraw (0, 3) circle [radius=2pt] node[above] {Sonnensystem};
   \draw[->, thick, blue] (\cloudangleA:2cm) -- +(\cloudangleA-90:1cm) node[above, midway] {$v_1$};
-  \draw[->, thick, blue] (\cloudangleA:2cm) -- +(\viewangle-90:0.55cm);
+  \draw[->, thick, blue] (\cloudangleA:2cm) -- ++(\viewangle-90:0.50cm);
   \draw[->, thick, green] (\viewangle:1cm) -- +(-90+\viewangle:1.2cm) node[right, midway] {$v_2$};
   \draw[->, thick, red] (\cloudangleB:2cm) -- +(\cloudangleB-90:1cm) node[anchor=south east, midway] {$v_3$};
   \draw[->, thick, red] (\cloudangleB:2cm) -- +(\viewangle-90:0.49cm);

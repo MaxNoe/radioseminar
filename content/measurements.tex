@@ -6,29 +6,31 @@
     \begin{column}{0.5\textwidth}
       \begin{tikzpicture}%
         \begin{axis}[%
-            xmin=21.09,
-            xmax=21.12,
-            ymin=-2,
+            xmin=21.1,
+            xmax=21.13,
+            ymin=0,
             % ymax=120,
             width=\linewidth-12.05pt,
             xlabel={\SIQ{λ}{\centi\meter}},
             ylabel={$I$ / a.\,u.},
+            extra x ticks={21.10611405413},
+            extra x tick labels={$\mathrm{H}$},
           ]%
           \addplot[
             green,
-            domain=21.09:21.12,
+            domain=21.1:21.13,
             samples=201,
-          ]{0.6*exp(-0.5*(x-21.113)^2/(0.002^2))/(sqrt(2*pi*0.002^2))};
+          ]{0.6*exp(-0.5*(x-21.122)^2/(0.002^2))/(sqrt(2*pi*0.002^2))};
           \addplot[
             red,
             domain=21.09:21.12,
             samples=201,
-          ]{0.6*exp(-0.5*(x-21.1)^2/(0.002^2))/(sqrt(2*pi*0.002^2))};
+          ]{0.6*exp(-0.5*(x-21.112)^2/(0.002^2))/(sqrt(2*pi*0.002^2))};
           \addplot[
             blue,
             domain=21.09:21.12,
             samples=201,
-          ]{0.6*exp(-0.5*(x-21.102)^2/(0.002^2))/(sqrt(2*pi*0.002^2))};
+          ]{0.6*exp(-0.5*(x-21.110)^2/(0.002^2))/(sqrt(2*pi*0.002^2))};
         \end{axis}%
       \end{tikzpicture}%
     \end{column}
@@ -95,6 +97,8 @@
             width=0.93\linewidth,
             xlabel={\SIQ{λ}{\centi\meter}},
             ylabel={$\SIQ{\TB}{\kelvin}$},
+            extra x ticks={21.10611405413},
+            extra x tick labels={$\mathrm{H}$},
           ]%
           \only<1>{%
             \addplot[red!70!black] table[x index=3, y index=1]{./data/radial_velocity_l335.txt};%
