@@ -1,3 +1,4 @@
+\PassOptionsToPackage{colorlinks, unicode, linkcolor=red!70!black}{hyperref}
 \documentclass[compress, aspectratio=169]{beamer}
 
 \usefonttheme{professionalfonts}
@@ -35,19 +36,27 @@
 \usepgfplotslibrary{polar}
 \pgfplotsset{compat=1.12}
 
-\newcommand\fullscreenimage[1]{{%
-  \usebackgroundtemplate{%
-    \includegraphics[
-      width=\paperwidth,
-      height=\paperheight,
-  ]{#1}}
-  \begin{frame}[plain]%
+\newcommand\fullscreenimage[2][]{{%
+  \begin{frame}[plain]
+    \begin{tikzpicture}[remember picture, overlay, shift=(current page.south west)]
+      \fill[black] (0, 0) rectangle (\paperwidth, \paperheight);
+      \node[anchor=center] at (current page.center) {%
+        \includegraphics[
+          width=\paperwidth,
+          height=\paperheight,
+          keepaspectratio,
+        ]{#2}%
+      };
+      \node[anchor=south east] at (current page.south east) {#1};
+    \end{tikzpicture}
   \end{frame}%
 }}
 
-
 \usepackage{xfrac}
 
+\usepackage[backend=biber, style=numeric]{biblatex}
+\addbibresource{references.bib}
+\usepackage{hyperref}
 
 \usetheme{vertex}
 
@@ -65,9 +74,26 @@
 \begin{document}
 \maketitle
 
+\begin{frame}{Übersicht}
+  \begin{columns}[c, onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \linespread{1.5}
+      \tableofcontents
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \includegraphics[width=\linewidth]{./images/lrg_lab_fullvel.png}
+    \end{column}
+  \end{columns}
+\end{frame}
+
 \input{content/theory.tex}
 \input{content/history.tex}
 \input{content/measurements.tex}
 \input{content/stockert.tex}
 \input{content/extragalactic.tex}
+
+\begin{frame}{Quellen}
+\printbibliography{}
+\end{frame}
+
 \end{document}

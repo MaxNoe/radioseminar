@@ -12,7 +12,8 @@
   \draw (0, 0) -- (\viewangle:1cm) node[midway,below] {$R$};
   \filldraw (0, 0) circle [radius=2pt];
   \filldraw (0, 3) circle [radius=2pt] node[above] {Sonnensystem};
-  \draw[->, thick] (0, 3) -- + (1, 0) node[below, midway] {$v_0$};
+  \draw[->, thick] (0, 3) -- + (1, 0) node[below, right] {$v_0$};
+  \draw[->, thick] (0, 3) -- + (\viewangle - 90:0.333);
   \draw[->, thick] (\viewangle:1cm) -- +(-90+\viewangle:1cm) node[right, midway] {$v$};
   \node[left] at (0, 2.65) {$γ$};
 \end{tikzpicture}

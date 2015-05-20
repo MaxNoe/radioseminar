@@ -3,6 +3,11 @@
   \begin{columns}[T, onlytextwidth]%
     \begin{column}{0.5\textwidth}%
       \input{tikz/transitions.tex}%
+      Mittlere Intensität
+      \vfill
+      \begin{equation*}
+        \bar{I} = \int_0^\infty I_ν φ(ν) \, \mathup{d}ν
+      \end{equation*}
     \end{column}%
     \begin{column}{0.45\textwidth}%
       mittlere Energiedichte:
@@ -18,38 +23,65 @@
   \end{columns}%
 \end{frame}
 
-\begin{frame}{Wichtige Kenngrößen}
-  \begin{block}{Brightness Temperature $T_\mathup{B}$}
-    \begin{align*}%
-      \TB &= \frac{c²}{2 \kb} \frac{1}{ν²} I_ν & 
-      \TB &= \frac{h ν}{k_\mathup{B}}
-             \frac{1}{\ln\!\left(
-                \frac{8\PI h ν³}{c³\bar{U}} + 1
-             \right)} \\
-      &\text{(allgemein)} &  &\text{(Linienemission)}
-    \end{align*}%
+\begin{frame}{Verküpfung zu makroskopischen Größen}
+  \begin{columns}[c, onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \textcolor{darkred}{Absorbtionskoeffizient} $\kappa_ν$ \hfill
+      \begin{equation*}
+        \kappa_ν = \frac{h ν}{4 \PI} N_1 B_{12} \left( 1 - \frac{g_1 N_2}{g_2 N_1} \right) φ(ν)
+      \end{equation*}
+    \end{column}
+    \begin{column}{0.47\textwidth}
+      \textcolor{darkred}{Emissionskoeffizient} $ε_ν$
+      \begin{equation*}
+        ε_ν = \frac{h ν}{4 \PI} N_2 A_{21} φ(ν)
+      \end{equation*}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    Für Radiolinien gleicht die stimulierte Emission die Absorption etwa aus. 
+  \end{center}
+\end{frame}
+
+  \begin{frame}{Brightness Temperature $T_\mathup{B}$}
+  \begin{align*}%
+    \TB &= \frac{c²}{2 \kb} \frac{1}{ν²} I_ν & 
+    \TB &= \frac{h ν}{k_\mathup{B}}
+            \frac{1}{\ln\!\left(
+              \frac{8\PI h ν³}{c³\bar{U}} + 1
+            \right)} \\
+    &\text{(allgemein)} &  &\text{(Linienemission)}
+  \end{align*}%
   \begin{itemize}
     \item Rayleigh–Jeans-Temperatur für gegebene Intensität $I_ν$
     \item verbreitetes Helligkeitsmaß in der Radioastronomie
   \end{itemize}
-  \end{block}%
 \end{frame}
 
-\begin{frame}{Die \SI{21}{\centi\meter}-Linie}
-  \begin{columns}[c, onlytextwidth]%
-    \begin{column}{0.6\textwidth}%
-      \input{tikz/21cm.tex}
-    \end{column}%
-    \begin{column}{0.4\textwidth}%
-      \begin{itemize}
-        \item Hyperfeinstruktur-Übergang in neutralem H
-        \item stark unterdrückt:
-          \begin{gather*}
-            A_{21} = \SI{2.869e-15}{\per\second} \\
-            τ = \SI{1.1e7}{\year}
-          \end{gather*}\vspace{-1.5\baselineskip}%
-        \item Anregung durch Stöße im interstellarem Medium
-      \end{itemize}
-    \end{column}%
-  \end{columns}%
+\begin{frame}[c]{Wasserstoff-Linien}%
+  \begin{tikzpicture}[remember picture, overlay, shift=(current page.north)]
+    \node[anchor=north] at (0, -0.9) {\includegraphics[width=\paperwidth]{images/H-emission-spectrum.pdf}};
+  \end{tikzpicture}
+
+  Elektrische Linienübergänge im Wasserstoff:
+  \begin{equation*}
+    \increment E = \frac{m e^4}{8 ε_0^2 h^2}
+                    \left( \frac{1}{n_2^2} - \frac{1}{n_1^2} \right)
+  \end{equation*}
+
+  \begin{center}
+  \textcolor{darkred}{Aber:} Keine starken Radiolinien.
+  \end{center}
+\end{frame}
+
+\begin{frame}{Warum überhaupt Radioastronomie}
+  \begin{itemize}
+    \item Mittlere freie Weglänge für optisches Photon $\mathcal{O}(\si{\kilo pc})$
+    \item Gasnebel und Interstellares auf großen Distanzen undurchsichtig für optisches Licht
+    \item durchsichtig für Radio- und Infrarot
+    \item[$\color{darkred}\Rightarrow$] einzige Möglichkeit die Struktur der Milchstraße zu vermessen
+  \end{itemize}
+  \begin{center}
+    Deshalb: Suche nach einer Radiolinie des Wasserstoffs
+  \end{center}
 \end{frame}
